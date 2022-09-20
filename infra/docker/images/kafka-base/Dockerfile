@@ -25,7 +25,7 @@ RUN apt update && \
 
 # Download, unzip, place and config KAFKA
 RUN curl -o /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz \
-         https://downloads.apache.org/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
+         https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
     tar -xf /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz -C /opt && \
     rm /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && \
     echo "# enable zookeeper status check with 'echo ruok | nc localhost:2181 | grep imok' - by alex" >> $KAFKA_HOME/config/zookeeper.properties && \
