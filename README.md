@@ -1,7 +1,7 @@
-# <img src="img/terraform.png" alt="HashiCorp Terraform" width="30" style="vertical-align: middle;"> | airflow with celery executor - redis queue - postgres backend | infra #
+# <img src="img/terraform-logo.png" alt="HashiCorp Terraform" width="30" style="vertical-align: middle;"> | airflow with celery executor - redis queue - postgres backend | infra #
 
 
-## <img src="img/terraform.png" alt="Terraform" height="100" style="vertical-align: middle;"> <img src="img/docker.jpeg" alt="Docker" height="100" style="vertical-align: middle;"> <img src="img/kafka-white-logo.png" alt="apache kafka" height="100" style="vertical-align: middle;">
+## <img src="img/terraform-logo.png" alt="Terraform" height="100" style="vertical-align: middle;"> <img src="img/docker.jpeg" alt="Docker" height="100" style="vertical-align: middle;"> <img src="img/kafka-white-logo.png" alt="apache kafka" height="100" style="vertical-align: middle;">
 
 
 ## What is this folder for? ##
