@@ -1,7 +1,7 @@
 # <img src="img/terraform-logo.png" alt="HashiCorp Terraform" width="30" style="vertical-align: middle;"> | airflow with celery executor - redis queue - postgres backend | infra #
 
 
-## <img src="img/terraform-logo.png" alt="Terraform" height="100" style="vertical-align: middle;"> <img src="img/docker.jpeg" alt="Docker" height="100" style="vertical-align: middle;"> <img src="img/kafka-white-logo.png" alt="apache kafka" height="100" style="vertical-align: middle;">
+## <img src="img/terraform-logo.png" alt="Terraform" height="100" style="vertical-align: middle;"> <img src="img/docker.png" alt="Docker" height="100" style="vertical-align: middle;"> <img src="img/kafka-white-logo.png" alt="apache kafka" height="100" style="vertical-align: middle;"> <img src="img/zookeeper.png" alt="apache kafka" height="100" style="vertical-align: middle;">
 
 
 ## What is this folder for? ##
@@ -41,7 +41,7 @@ Here are created and `docker containers` and `docker networks` and destroyed aft
 ### 4. Dependencies
 
 - [install docker](https://docs.docker.com/get-docker/) <img src="img/docker.png" alt="docker" height="20" style="vertical-align: middle;">
-- [install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) <img src="img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;">
+- [install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) <img src="img/terraform-logo.png" alt="Terraform" height="30" style="vertical-align: middle;">
 
 
 ## Who do I talk to? ##
