@@ -1,4 +1,4 @@
-# <img src="img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;"> <img src="img/docker.png" alt="docker" height="30" style="vertical-align: middle;"> | execution
+# <img src="../../../img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;"> <img src="../../../img/docker.png" alt="docker" height="30" style="vertical-align: middle;"> | execution
 
 It's intended to be very fast, less than 1 min.   
 Here are created and `docker containers` and `docker networks` and destroyed after use.  
@@ -27,7 +27,7 @@ terraform apply
 
 ## 3. How to run tests
 
-### <img src="img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;"> 3.1. Check terraform objects
+### <img src="../../../img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;"> 3.1. Check terraform objects
 
 ```bash
 terraform state list
@@ -45,7 +45,7 @@ docker_image.kafka_zookeeper
 docker_network.kafka_network
 ```
 
-### <img src="img/docker.png" alt="docker" height="20" style="vertical-align: middle;"> 3.2. Check docker networks
+### <img src="../../../img/docker.png" alt="docker" height="20" style="vertical-align: middle;"> 3.2. Check docker networks
 
 ```bash
 docker network ls
@@ -58,7 +58,7 @@ NETWORK ID     NAME            DRIVER    SCOPE
 82d88eb126e6   kafka-network   bridge    local
 ```
 
-### <img src="img/docker.png" alt="docker" height="20" style="vertical-align: middle;"> 3.3. Check docker containers
+### <img src="../../../img/docker.png" alt="docker" height="20" style="vertical-align: middle;"> 3.3. Check docker containers
 
 ```bash
 docker container ls

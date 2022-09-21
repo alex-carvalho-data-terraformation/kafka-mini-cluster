@@ -2,23 +2,23 @@
 
 ## Quick summary  
 
-<img src="img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;"> Terraform infrastructure containing: 
+<img src="../img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;"> Terraform infrastructure containing: 
 
 ### network
 
 - 1 network called `kafka-network`
 
-### containers <img src="img/docker.png" alt="docker" height="30" style="vertical-align: middle;">
+### containers <img src="../img/docker.png" alt="docker" height="30" style="vertical-align: middle;">
 
-- 1 <img src="img/zookeeper.png" alt="ZooKeeper" height="20" style="vertical-align: middle;"> [ZooKeeper](#zookeeper)
-- 3 <img src="img/kafka-white-logo.png" alt="Apache Kafka" height="20" style="vertical-align: middle;"> [Kafka](#kafka)
+- 1 <img src="../img/zookeeper.png" alt="ZooKeeper" height="20" style="vertical-align: middle;"> [ZooKeeper](#zookeeper)
+- 3 <img src="../img/kafka-white-logo.png" alt="Apache Kafka" height="20" style="vertical-align: middle;"> [Kafka](#kafka)
 
 
 # container descriptions #
 
 ## ZooKeeper
 
-<img src="img/zookeeper.png" alt="ZooKeeper" height="60" style="vertical-align: middle;">
+<img src="../img/zookeeper.png" alt="ZooKeeper" height="60" style="vertical-align: middle;">
 
 ### software
 
@@ -31,7 +31,7 @@
 
 ## Kafka
 
-<img src="img/kafka-white-logo.png" alt="Apache Kafka" height="60" style="vertical-align: middle;">  
+<img src="../img/kafka-white-logo.png" alt="Apache Kafka" height="60" style="vertical-align: middle;">  
 
 ### containers purpose
 
