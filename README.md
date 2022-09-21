@@ -10,7 +10,7 @@
 
 This project is intended to demosntrate a `Terraform` infrastruture as code for `Apache Kafka` with 1 `ZooKeeper` and 3 `Kafka Brokers`containers. 
 
-[Environment description](ENVIRONMENT.md)
+[Environment description](infra/ENVIRONMENT.md)
 
 
 ## How do I get set up? ##
@@ -21,22 +21,22 @@ All environment is built using Terraform.
 
 Basically it's necessary to initialize the Terraform environment.  
 
-- [build](BUILD.md)
-- [execution](EXEC.md)
+- [build](infra/terraform/build/BUILD.md)
+- [execution](infra/terraform/exec/EXEC.md)
 
 ### 2. build
 
 The build part trigger the construction of objects that consume a lot of time, like the `docker images`.  
 It also creates objects that are desired to persist between executions, like `docker volumes`.
 
-[build instructions](BUILD.md)
+[build instructions](infra/terraform/build/BUILD.md)
 
 ### 3. execution
 
 It's intended to be very fast, less than 1 min.   
 Here are created and `docker containers` and `docker networks` and destroyed after use.  
 
-[execution instructions](EXEC.md)
+[execution instructions](infra/terraform/exec/EXEC.md)
 
 ### 4. Dependencies
 
