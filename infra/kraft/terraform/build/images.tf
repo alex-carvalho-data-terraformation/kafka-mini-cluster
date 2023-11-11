@@ -6,6 +6,6 @@ resource "docker_image" "kafka_node" {
       SCALA_VERSION : "2.13"
       KAFKA_VERSION : "3.6.0"
     }
-    tag  = ["kafka-node:latest", "kafka-node:3.6.0-1.0.0"]
+    tag  = ["oak/kafka-node:latest", "oak/kafka-node:3.6.0-1.0.0"]
   }
 }

@@ -19,13 +19,13 @@ resource "docker_volume" "kafka_controller_config_vol" {
 }
 
 resource "docker_volume" "kafka_controller_11_logs_vol" {
-  name = "kafka-controller-101-logs-vol"
+  name = "kafka-controller-11-logs-vol"
 }
 
 resource "docker_volume" "kafka_controller_12_logs_vol" {
-  name = "kafka-controller-102-logs-vol"
+  name = "kafka-controller-12-logs-vol"
 }
 
 resource "docker_volume" "kafka_controller_13_logs_vol" {
-  name = "kafka-controller-103-logs-vol"
+  name = "kafka-controller-13-logs-vol"
 }
