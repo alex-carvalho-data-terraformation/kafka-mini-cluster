@@ -25,3 +25,11 @@ resource "docker_image" "kafka_node" {
   name         = "oak/kafka-node:latest"
   keep_locally = true
 }
+
+#####################################################
+# variables
+#####################################################
+variable "kafka_cluster_uuid" {
+  type = string
+  description = "CHANGE_ME"
+}
