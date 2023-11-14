@@ -3,7 +3,7 @@
 FROM ubuntu:22.04
 
 LABEL org.opencontainers.image.authors="allex.carvalho@gmail.com" \
-      description="kafka broker on ubuntu with java."
+      description="kafka node on ubuntu with java - base for kafka-controller and kafka-broker images"
 
 
 # Arguments for docker build
@@ -53,10 +53,7 @@ RUN wget -O /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz https://downloads.a
     rm /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
 
-VOLUME ["$KAFKA_HOME/config", "/tmp/kafka-logs"]
+VOLUME ["$KAFKA_HOME/config"]
 
 
-EXPOSE 9092
-
-
-LABEL version="1.0.0"
+LABEL version="0.1.1"
