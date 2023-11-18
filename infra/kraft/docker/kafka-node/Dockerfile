@@ -52,9 +52,6 @@ RUN wget -O /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz https://downloads.a
     tar -xzf /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz -C /opt && \
     rm /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
 
-
-VOLUME ["$KAFKA_HOME/config"]
-
 WORKDIR ${KAFKA_HOME}
 
 LABEL version="0.1.1"

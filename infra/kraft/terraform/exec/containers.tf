@@ -1,32 +1,33 @@
 #####################################################
 # containers
 #####################################################
-# resource "docker_container" "kafka_controller_11" {
-#   name  = "kafka-zookeeper"
-#   image = docker_image.kafka_node.image_id
+resource "docker_container" "kafka_controller_11" {
+  name  = "kafka-controller-11"
+  image = docker_image.kafka_controller.image_id
 
-#   networks_advanced {
-#     name = docker_network.kafka_network.id
-#   }
+  networks_advanced {
+    name = docker_network.kafka_network.id
+  }
 
-#   volumes {
-#     volume_name    = "kafka-controller-config-vol"
-#     container_path = "/opt/kafka_2.13-3.6.0/config"
-#   }
+  volumes {
+    volume_name    = "kafka-controller-11-logs-vol"
+    container_path = "/tmp/kraft-controller-logs"
+  }
 
-#   volumes {
-#     volume_name    = "kafka--data-vol"
-#     container_path = "/tmp/zookeeper"
-#   }
+  command = [
+    "--cluster-id", "OO7uy3mpQvieepZMySnprQ", 
+    "--node-id", "11", 
+    "--controller-quorum-voters", "11@localhost:9093" #"11@localhost:9093,12@controller12:9093,13@controller13:9093"
+  ]
 
-#   healthcheck {
-#     test         = ["CMD", "echo", "ruok", "|", "nc", "localhost", "2181", "|", "grep", "imok"]
-#     interval     = "10s"
-#     retries      = 10
-#     start_period = "3s"
-#     timeout      = "10s"
-#   }
-# }
+  healthcheck {
+    test         = ["CMD", "nc", "-z", "kafka-controller-11", "9093"]
+    interval     = "10s"
+    retries      = 10
+    start_period = "3s"
+    timeout      = "10s"
+  }
+}
 
 # resource "docker_container" "kafka_broker_101" {
 #   name  = "kafka-broker-101"
