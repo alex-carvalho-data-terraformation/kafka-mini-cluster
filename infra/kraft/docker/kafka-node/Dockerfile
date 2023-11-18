@@ -55,5 +55,6 @@ RUN wget -O /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz https://downloads.a
 
 VOLUME ["$KAFKA_HOME/config"]
 
+WORKDIR ${KAFKA_HOME}
 
 LABEL version="0.1.1"
