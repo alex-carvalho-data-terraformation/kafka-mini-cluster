@@ -17,7 +17,7 @@ resource "docker_container" "kafka_controller_11" {
   command = [
     "--cluster-id", "OO7uy3mpQvieepZMySnprQ", 
     "--node-id", "11", 
-    "--controller-quorum-voters", "11@kafka-controller-11:9093,12@kafka-controller-12:9093" #"11@localhost:9093,12@controller12:9093,13@controller13:9093"
+    "--controller-quorum-voters", "11@kafka-controller-11:9093,12@kafka-controller-12:9093,13@kafka-controller-13:9093"
   ]
 
   healthcheck {
@@ -28,6 +28,7 @@ resource "docker_container" "kafka_controller_11" {
     timeout      = "10s"
   }
 }
+
 
 resource "docker_container" "kafka_controller_12" {
   name  = "kafka-controller-12"
@@ -45,11 +46,40 @@ resource "docker_container" "kafka_controller_12" {
   command = [
     "--cluster-id", "OO7uy3mpQvieepZMySnprQ", 
     "--node-id", "12", 
-    "--controller-quorum-voters", "11@kafka-controller-11:9093,12@kafka-controller-12:9093" #"11@localhost:9093,12@controller12:9093,13@controller13:9093"
+    "--controller-quorum-voters", "11@kafka-controller-11:9093,12@kafka-controller-12:9093,13@kafka-controller-13:9093"
   ]
 
   healthcheck {
     test         = ["CMD", "nc", "-z", "kafka-controller-12", "9093"]
+    interval     = "10s"
+    retries      = 10
+    start_period = "3s"
+    timeout      = "10s"
+  }
+}
+
+
+resource "docker_container" "kafka_controller_13" {
+  name  = "kafka-controller-13"
+  image = docker_image.kafka_controller.image_id
+
+  networks_advanced {
+    name = docker_network.kafka_network.id
+  }
+
+  volumes {
+    volume_name    = "kafka-controller-13-logs-vol"
+    container_path = "/tmp/kraft-controller-logs"
+  }
+
+  command = [
+    "--cluster-id", "OO7uy3mpQvieepZMySnprQ", 
+    "--node-id", "13", 
+    "--controller-quorum-voters", "11@kafka-controller-11:9093,12@kafka-controller-12:9093,13@kafka-controller-13:9093"
+  ]
+
+  healthcheck {
+    test         = ["CMD", "nc", "-z", "kafka-controller-13", "9093"]
     interval     = "10s"
     retries      = 10
     start_period = "3s"
