@@ -8,8 +8,8 @@ terraform {
 }
 
 provider "docker" {
-  # host = "unix:///var/run/docker.sock"  # linux
-  host = "unix:///Users/alex1real/.colima/default/docker.sock" # mac
+  host = "unix:///var/run/docker.sock"  # linux
+  # host = "unix:///Users/alex1real/.colima/default/docker.sock" # mac
   # host can be retrieved using `docker context ls`
 }
 
