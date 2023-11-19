@@ -9,9 +9,7 @@ VOLUME ["/tmp/kraft-controller-logs"]
 
 
 COPY ./entrypoint.sh .
-
-
-EXPOSE 9093
+RUN chmod u+x entrypoint.sh
 
 
 ENTRYPOINT [ "./entrypoint.sh" ]
