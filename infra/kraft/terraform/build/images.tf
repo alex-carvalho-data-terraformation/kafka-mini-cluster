@@ -18,10 +18,6 @@ resource "docker_image" "kafka_controller" {
   force_remove = true
   build {
     context = "../../docker/kafka-controller/"
-    build_arg = {
-      SCALA_VERSION : "2.13"
-      KAFKA_VERSION : "3.6.0"
-    }
   }
 }
 
@@ -32,9 +28,5 @@ resource "docker_image" "kafka_broker" {
   force_remove = true
   build {
     context = "../../docker/kafka-broker/"
-    build_arg = {
-      SCALA_VERSION : "2.13"
-      KAFKA_VERSION : "3.6.0"
-    }
   }
 }

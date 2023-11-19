@@ -8,17 +8,19 @@
 
 ### image
 
-- 1 Docker image called `CHANGE_ME`
+- oak/kafka-node
+- oak/kafka-broker
+- oak/kafka-controller
 
 ### volume
 
 - 6 volumes (2 per container) called:
-    - CHANGE_ME
-    - CHANGE_ME
-    - CHANGE_ME
-    - CHANGE_ME
-    - CHANGE_ME
-    - CHANGE_ME
+    - kafka-controller-11-logs-vol
+    - kafka-controller-12-logs-vol
+    - kafka-controller-13-logs-vol
+    - kafka-broker-101-logs-vol
+    - kafka-broker-102-logs-vol
+    - kafka-broker-103-logs-vol
 
 ### network
 
@@ -26,7 +28,7 @@
 
 ### containers <img src="../../img/docker.png" alt="docker" height="30" style="vertical-align: middle;">
 
-- 3 <img src="../../img/kafka-white-logo.png" alt="Apache Kafka" height="20" style="vertical-align: middle;"> [Kafka](#kafka)
+- 6 <img src="../../img/kafka-white-logo.png" alt="Apache Kafka" height="20" style="vertical-align: middle;"> [Kafka](#kafka)
 
 
 # container descriptions #
@@ -43,7 +45,7 @@ All 3 containers use the same docker image.
 
 ### software
 
-- kafka 2.13-3.2.1  
+- kafka 2.13-3.6.0  
 - ubuntu 22.04 (jammy jellyfish)
 
 ### exposed ports (host:container)
@@ -51,7 +53,6 @@ All 3 containers use the same docker image.
 - 19092:9092  
 - 29092:9092  
 - 39092:9092  
-_* all containers expose port 9092, each of them attach to different port at the host_
 
 
 ### container specific info
