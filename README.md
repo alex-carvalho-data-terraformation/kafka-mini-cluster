@@ -15,13 +15,13 @@ This project is intended to demosntrate a `Terraform` infrastruture as code for 
 
 There are 2 flavors of environment for this project, one with ZooKeeper and the other with KRaft.
 
-### <img src="img/zookeeper.png" alt="docker" height="20" style="vertical-align: middle;"> 1. Original ZooKeeper environment 
+### 1. <img src="img/zookeeper.png" alt="docker" height="20" style="vertical-align: middle;"> Original ZooKeeper environment 
 
 Originally, the environmnent was 1 `ZooKeeper` and 3 `Kafka Brokers` containers. 
 
 [Environment with ZooKeeper description](infra/zookeeper/ENVIRONMENT.md)
 
-### <img src="img/kafka-white-logo.png" alt="docker" height="20" style="vertical-align: middle;"> 2. KRaft environment 
+### 2. <img src="img/kafka-white-logo.png" alt="docker" height="20" style="vertical-align: middle;"> KRaft environment 
 
 With kafka introduction of KRaft to replace ZooKeeper, a new enviroment was created with 3 `Kafka Brokers` containers. 
 
@@ -45,18 +45,26 @@ Basically it's necessary to initialize the Terraform environment.
 The build part trigger the construction of objects that consume a lot of time, like the `docker images`.  
 It also creates objects that are desired to persist between executions, like `docker volumes`.
 
-#### 2.1. <img src="img/zookeeper.png" alt="docker" height="20" style="vertical-align: middle;"> environment with ZooKeeper build
+#### 2.1. <img src="img/zookeeper.png" alt="docker" height="20" style="vertical-align: middle;"> ZooKeeper
 
-[build instructions](infra/zookeeper/terraform/build/BUILD.md)
+[ZooKeeper build instructions](infra/zookeeper/terraform/build/BUILD.md)
+
+#### 2.2. <img src="img/kafka-white-logo.png" alt="docker" height="20" style="vertical-align: middle;"> KRaft
+
+[KRaft build instructions](infra/kraft/terraform/build/BUILD.md)
 
 ### 3. execution
 
 It's intended to be very fast, less than 1 min.   
 Here are created and `docker containers` and `docker networks` and destroyed after use.  
 
-#### <img src="img/zookeeper.png" alt="docker" height="20" style="vertical-align: middle;"> 3.1. environment with ZooKeeper execution
+#### 3.1. <img src="img/zookeeper.png" alt="docker" height="20" style="vertical-align: middle;"> ZooKeeper
 
-[execution instructions](infra/zookeeper/terraform/exec/EXEC.md)
+[ZooKeper execution instructions](infra/zookeeper/terraform/exec/EXEC.md)
+
+#### 3.2. <img src="img/kafka-white-logo.png" alt="docker" height="20" style="vertical-align: middle;"> KRaft
+
+[KRraft execution instructions](infra/kraft/terraform/exec/EXEC.md)
 
 ### 4. Dependencies
 

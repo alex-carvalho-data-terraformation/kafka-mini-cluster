@@ -42,7 +42,8 @@ docker_container.kafka_broker_103
 docker_container.kafka_controller_11
 docker_container.kafka_controller_12
 docker_container.kafka_controller_13
-docker_image.kafka_node
+docker_image.kafka_broker
+docker_image.kafka_controller
 docker_network.kafka_network
 ```
 
@@ -70,10 +71,13 @@ docker container ls
 TODO: CHANGE_ME
 ```bash
 CCONTAINER ID   IMAGE          COMMAND                  CREATED              STATUS                        PORTS                                NAMES
-594c666fd56e   6de46593ce0a   "kafka-server-start.…"   About a minute ago   Up About a minute (healthy)   9092/tcp, 0.0.0.0:19092->19092/tcp   kafka-broker-101
-6b77ff25fa56   6de46593ce0a   "kafka-server-start.…"   About a minute ago   Up About a minute (healthy)   9092/tcp, 0.0.0.0:29092->29092/tcp   kafka-broker-102
-bc92c5ef7ea4   6de46593ce0a   "kafka-server-start.…"   About a minute ago   Up About a minute (healthy)   9092/tcp, 0.0.0.0:39092->39092/tcp   kafka-broker-103
-be3370751dc6   ab12883c77b3   "zookeeper-server-st…"   About a minute ago   Up About a minute (healthy)   2181/tcp                             kafka-zookeeper
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                    PORTS                      NAMES
+b9bcd61df3dd   b122b9407c16   "./entrypoint.sh --c…"   41 seconds ago   Up 40 seconds (healthy)   0.0.0.0:29092->29092/tcp   kafka-broker-102
+73847e545896   b122b9407c16   "./entrypoint.sh --c…"   41 seconds ago   Up 40 seconds (healthy)   0.0.0.0:39092->39092/tcp   kafka-broker-103
+ad73b6e00990   b122b9407c16   "./entrypoint.sh --c…"   41 seconds ago   Up 40 seconds (healthy)   0.0.0.0:19092->19092/tcp   kafka-broker-101
+da267be4df40   4db94015fa3c   "./entrypoint.sh --c…"   42 seconds ago   Up 41 seconds (healthy)   9093/tcp                   kafka-controller-13
+b59af36cd079   4db94015fa3c   "./entrypoint.sh --c…"   42 seconds ago   Up 41 seconds (healthy)   9093/tcp                   kafka-controller-12
+8b9a69c8726b   4db94015fa3c   "./entrypoint.sh --c…"   42 seconds ago   Up 41 seconds (healthy)   9093/tcp                   kafka-controller-11
 ```
 
 ## 4. Undeploy instructions
