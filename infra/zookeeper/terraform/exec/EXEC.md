@@ -1,4 +1,4 @@
-# <img src="../../../img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;"> <img src="../../../img/docker.png" alt="docker" height="30" style="vertical-align: middle;"> | execution
+# <img src="../../../../img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;"> <img src="../../../../img/docker.png" alt="docker" height="30" style="vertical-align: middle;"> | execution
 
 It's intended to be very fast, less than 1 min.   
 Here are created and `docker containers` and `docker networks` and destroyed after use.  
@@ -8,7 +8,7 @@ Here are created and `docker containers` and `docker networks` and destroyed aft
 1. Go to terraform config dir for execution (from this README folder)
    
 ```bash
-cd infra/terraform/exec/
+cd infra/zookeeper/terraform/exec/
 ```
 
 2. Initialize Terraform
@@ -27,7 +27,7 @@ terraform apply
 
 ## 3. How to run tests
 
-### <img src="../../../img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;"> 3.1. Check terraform objects
+### <img src="../../../../img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;"> 3.1. Check terraform objects
 
 ```bash
 terraform state list
@@ -45,7 +45,7 @@ docker_image.kafka_zookeeper
 docker_network.kafka_network
 ```
 
-### <img src="../../../img/docker.png" alt="docker" height="20" style="vertical-align: middle;"> 3.2. Check docker networks
+### <img src="../../../../img/docker.png" alt="docker" height="20" style="vertical-align: middle;"> 3.2. Check docker networks
 
 ```bash
 docker network ls
@@ -58,7 +58,7 @@ NETWORK ID     NAME            DRIVER    SCOPE
 82d88eb126e6   kafka-network   bridge    local
 ```
 
-### <img src="../../../img/docker.png" alt="docker" height="20" style="vertical-align: middle;"> 3.3. Check docker containers
+### <img src="../../../../img/docker.png" alt="docker" height="20" style="vertical-align: middle;"> 3.3. Check docker containers
 
 ```bash
 docker container ls
@@ -78,7 +78,7 @@ be3370751dc6   ab12883c77b3   "zookeeper-server-st…"   About a minute ago   Up
 
 ### 4.1. Stop and remove docker containers and volumes
 
-at `infra/terraform/exec/`  
+at `infra/zookeeper/terraform/exec/`  
 
 ```bash
 terraform destroy

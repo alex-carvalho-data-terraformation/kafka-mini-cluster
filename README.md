@@ -1,4 +1,4 @@
-# <img src="img/terraform.png" alt="HashiCorp Terraform" width="30" style="vertical-align: middle;"> | airflow with celery executor - redis queue - postgres backend | infra #
+# <img src="img/terraform.png" alt="HashiCorp Terraform" width="30" style="vertical-align: middle;"> | kafka minit cluster | infra #
 
 
 ## <img src="img/terraform.png" alt="Terraform" height="100" style="vertical-align: middle;"> <img src="img/docker.png" alt="Docker" height="100" style="vertical-align: middle;"> <img src="img/kafka-white-logo.png" alt="apache kafka" height="100" style="vertical-align: middle;"> <img src="img/zookeeper.png" alt="apache kafka" height="100" style="vertical-align: middle;">
@@ -8,35 +8,55 @@
 
 ### Quick summary
 
-This project is intended to demosntrate a `Terraform` infrastruture as code for `Apache Kafka` with 1 `ZooKeeper` and 3 `Kafka Brokers`containers. 
+This project is intended to demosntrate a `Terraform` infrastruture as code for `Apache Kafka`.
 
-[Environment description](infra/ENVIRONMENT.md)
+
+## Environments description
+
+There are 2 flavors of environment for this project, one with ZooKeeper and the other with KRaft.
+
+### <img src="img/zookeeper.png" alt="docker" height="20" style="vertical-align: middle;"> 1. Original ZooKeeper environment 
+
+Originally, the environmnent was 1 `ZooKeeper` and 3 `Kafka Brokers` containers. 
+
+[Environment with ZooKeeper description](infra/zookeeper/ENVIRONMENT.md)
+
+### <img src="img/kafka-white-logo.png" alt="docker" height="20" style="vertical-align: middle;"> 2. KRaft environment 
+
+With kafka introduction of KRaft to replace ZooKeeper, a new enviroment was created with 3 `Kafka Brokers` containers. 
+
+[Environment with KRaft description](infra/kraft/ENVIRONMENT.md)
+
 
 
 ## How do I get set up? ##
 
 ### 1. Summary of set up
 
-All environment is built using Terraform.  
+All environments are built using Terraform.  
 
 Basically it's necessary to initialize the Terraform environment.  
 
-- [build](infra/terraform/build/BUILD.md)
-- [execution](infra/terraform/exec/EXEC.md)
+- build
+- execution
 
 ### 2. build
 
 The build part trigger the construction of objects that consume a lot of time, like the `docker images`.  
 It also creates objects that are desired to persist between executions, like `docker volumes`.
 
-[build instructions](infra/terraform/build/BUILD.md)
+#### 2.1. <img src="img/zookeeper.png" alt="docker" height="20" style="vertical-align: middle;"> environment with ZooKeeper build
+
+[build instructions](infra/zookeeper/terraform/build/BUILD.md)
 
 ### 3. execution
 
 It's intended to be very fast, less than 1 min.   
 Here are created and `docker containers` and `docker networks` and destroyed after use.  
 
-[execution instructions](infra/terraform/exec/EXEC.md)
+#### <img src="img/zookeeper.png" alt="docker" height="20" style="vertical-align: middle;"> 3.1. environment with ZooKeeper execution
+
+[execution instructions](infra/zookeeper/terraform/exec/EXEC.md)
 
 ### 4. Dependencies
 
