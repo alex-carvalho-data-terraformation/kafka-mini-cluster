@@ -11,9 +11,6 @@ VOLUME ["/tmp/kraft-broker-logs"]
 COPY ./entrypoint.sh .
 
 
-EXPOSE 9092
-
-
 ENTRYPOINT [ "./entrypoint.sh" ]
 
 

@@ -6,6 +6,7 @@ print_parsed_args () {
     echo "node_id: $node_id"
     echo "controller_quorum_voters: $controller_quorum_voters"
     echo "docker_container_name: $docker_container_name"
+    echo "port: $port"
     echo ""
 }
 
@@ -30,9 +31,12 @@ print_help () {
     echo "                                      [node id]@[host]:[port],[node id]@[host]:[port]"
     echo "                                  example:"
     echo "                                    --controller-quorum-voters 11@kafka-controller-11:9093,12@kafka-controller-12:9093"
-    echo " -d, --docker-container-name      controller node id"
+    echo " -d, --docker-container-name      docker container name"
     echo "                                  example:"
     echo "                                    --docker-container-name kafka-broker-101"
+    echo " -l, --listener-port              exposed listener port"
+    echo "                                  example:"
+    echo "                                    --listener-port 19092"
     echo " -h, --help                       display this help"
     echo ""
     echo "Example:"
@@ -44,7 +48,7 @@ print_help () {
 
 parse_args()
 {
-    valid_args=($(getopt -u -o c:n:q:d:h -l cluster-id:,node-id:,controller-quorum-voters:,docker-container-name:,help -- $@))
+    valid_args=($(getopt -u -o c:n:q:d:p:h -l cluster-id:,node-id:,controller-quorum-voters:,docker-container-name:,port:,help -- $@))
 
     for (( i = 0; i < ${#valid_args[@]}; i++)) ; do
 
@@ -53,6 +57,7 @@ parse_args()
             -n|--node-id)                   node_id=${valid_args[$i+1]} ;;
             -q|--controller-quorum-voters)  controller_quorum_voters=${valid_args[$i+1]} ;;
             -d|--docker-container-name)     docker_container_name=${valid_args[$i+1]} ;;
+            -p|--port)                      port=${valid_args[$i+1]} ;;
             -h|--help)                      print_help ;;
             --) break ;;
         esac
@@ -68,7 +73,9 @@ generate_broker_properties()
     sed \
       -e s/node.id=2/node.id=$node_id/ \
       -e s/controller.quorum.voters=1@localhost:9093/controller.quorum.voters=$controller_quorum_voters/ \
-      -e s#listeners=PLAINTEXT.*9092#listeners=PLAINTEXT://$docker_container_name:9092# \
+      -e s#listeners=PLAINTEXT.*9092#listeners=PLAINTEXT://$docker_container_name:9092,PLAINTEXT_HOST://0.0.0.0:$port# \
+      -e s#advertised.listeners=PLAINTEXT.*9092#advertised.listeners=PLAINTEXT://$docker_container_name:9092,PLAINTEXT_HOST://localhost:$port# \
+      -e s#listener.security.protocol.map=.*SASL_SSL#listener.security.protocol.map=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT# \
       ${KAFKA_HOME}/config/kraft/broker.properties > ${KAFKA_HOME}/config/kraft/$properties_file_name
 }
 
