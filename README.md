@@ -66,10 +66,45 @@ Here are created and `docker containers` and `docker networks` and destroyed aft
 
 [KRraft execution instructions](infra/kraft/terraform/exec/EXEC.md)
 
+
 ### 4. Dependencies
 
 - [install docker](https://docs.docker.com/get-docker/) <img src="img/docker.png" alt="docker" height="20" style="vertical-align: middle;">
 - [install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli) <img src="img/terraform.png" alt="Terraform" height="30" style="vertical-align: middle;">
+
+
+### 5. How to run tests
+
+#### 5.1. setup a local client
+
+[Download kafka_2.13-3.6.0.](https://www.apache.org/dyn/closer.cgi?path=/kafka/3.6.0/kafka_2.13-3.6.0.tgz) or the latest Kafka release and extract it:
+
+```bash
+tar -xzf kafka_2.13-3.6.0.tgz
+$ cd kafka_2.13-3.6.0/bin
+```
+
+with the environment running after build and exectuion steps
+
+#### 5.2. create a sample topic
+
+```bash
+> ./kafka-topics.sh --bootstrap-server localhost:19092 --create --topic quick-start-events
+Created topic quick-start-events.
+```
+
+#### 5.3. list all topics
+
+```bash
+> ./kafka-topics.sh --bootstrap-server localhost:29092 --list
+quick-start-events
+```
+
+#### 5.4. delete the sample topic
+
+```bash
+> ./kafka-topics.sh --bootstrap-server localhost:39092 --delete --topic quick-start-events
+```
 
 
 ## Who do I talk to? ##
