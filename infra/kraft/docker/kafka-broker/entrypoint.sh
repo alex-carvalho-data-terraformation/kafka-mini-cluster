@@ -56,14 +56,14 @@ parse_args()
 }
 
 
-generate_controller_properties()
+generate_broker_properties()
 {
-    properties_file_name=controller_${node_id}.properties
+    properties_file_name=broker_${node_id}.properties
 
     sed \
       -e s/node.id=1/node.id=$node_id/ \
       -e s/controller.quorum.voters=1@localhost:9093/controller.quorum.voters=$controller_quorum_voters/ \
-      ${KAFKA_HOME}/config/kraft/controller.properties > ${KAFKA_HOME}/config/kraft/$properties_file_name
+      ${KAFKA_HOME}/config/kraft/broker.properties > ${KAFKA_HOME}/config/kraft/$properties_file_name
 }
 
 
@@ -75,9 +75,9 @@ format_log_dir()
 }
 
 
-start_kafka_controller()
+start_kafka_broker()
 {
-    echo "starting kafka controler $node_id"
+    echo "starting kafka broker $node_id"
 
     kafka-server-start.sh ${KAFKA_HOME}/config/kraft/$properties_file_name
 }
@@ -85,7 +85,7 @@ start_kafka_controller()
 print_header()
 {
     echo ""
-    echo "kafka-controller entry point script"
+    echo "kafka-broker entry point script"
 }
 
 print_header
@@ -93,8 +93,8 @@ print_header
 parse_args $@
 print_parsed_args
 
-generate_controller_properties
+generate_broker_properties
 
 format_log_dir
 
-start_kafka_controller
+start_kafka_broker
